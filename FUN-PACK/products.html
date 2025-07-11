@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>محصولات | FUN PACK</title>
+  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: Vazir, sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-100 text-right">
+
+  <!-- هدر ساده -->
+  <header class="bg-yellow-500 text-white p-4 flex justify-between items-center shadow-md">
+    <h1 class="text-xl font-bold">FUN PACK - فروشگاه</h1>
+    <a href="cart.html" class="bg-white text-yellow-600 font-bold px-4 py-1 rounded-xl hover:bg-yellow-100 transition">🛒 سبد خرید</a>
+  </header>
+
+  <!-- فیلتر -->
+  <div class="p-4 bg-white shadow-sm flex flex-col md:flex-row justify-between items-center gap-4">
+    <div>
+      <label class="font-semibold">فیلتر بر اساس قیمت:</label>
+      <select id="priceFilter" class="border rounded-xl px-3 py-1" onchange="applyFilter()">
+        <option value="all">همه</option>
+        <option value="low">کم به زیاد</option>
+        <option value="high">زیاد به کم</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="font-semibold">برند:</label>
+      <select id="brandFilter" class="border rounded-xl px-3 py-1" onchange="applyFilter()">
+        <option value="all">همه</option>
+        <option value="Samsung">Samsung</option>
+        <option value="iPhone">iPhone</option>
+        <option value="Xiaomi">Xiaomi</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- شبکه محصولات -->
+  <main class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6" id="productGrid">
+
+    <!-- کارت محصول نمونه -->
+    <div class="bg-white rounded-xl shadow-md p-4 product-card" data-price="100000" data-brand="Samsung">
+      <img src="photo/brand (1).jpg" alt="Samsung" class="w-full h-40 object-cover rounded-xl mb-2">
+      <h3 class="font-bold text-lg">Samsung Galaxy</h3>
+      <p class="text-sm text-gray-500 mb-2">موبایل سامسونگ - مدل A</p>
+      <p class="font-bold text-yellow-600 mb-2">100,000 تومان</p>
+      <button class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-1 rounded-xl">افزودن به سبد</button>
+    </div>
+
+    <!-- همین ساختار رو برای محصولات دیگه کپی می‌کنی -->
+    <div class="bg-white rounded-xl shadow-md p-4 product-card" data-price="200000" data-brand="iPhone">
+      <img src="photo/brand (2).jpg" alt="iPhone" class="w-full h-40 object-cover rounded-xl mb-2">
+      <h3 class="font-bold text-lg">iPhone 12</h3>
+      <p class="text-sm text-gray-500 mb-2">اپل آیفون ۱۲</p>
+      <p class="font-bold text-yellow-600 mb-2">200,000 تومان</p>
+      <button class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-1 rounded-xl">افزودن به سبد</button>
+    </div>
+
+    <!-- ادامه بده برای برندها و قیمت‌های مختلف -->
+
+  </main>
+
+  <script>
+    function applyFilter() {
+      const priceSort = document.getElementById('priceFilter').value;
+      const brandFilter = document.getElementById('brandFilter').value;
+      const cards = Array.from(document.querySelectorAll('.product-card'));
+      const container = document.getElementById('productGrid');
+
+      // فیلتر برند
+      cards.forEach(card => {
+        const brand = card.dataset.brand;
+        const show = brandFilter === 'all' || brand === brandFilter;
+        card.style.display = show ? 'block' : 'none';
+      });
+
+      // مرتب‌سازی قیمت
+      const sorted = cards.sort((a, b) => {
+        const priceA = parseInt(a.dataset.price);
+        const priceB = parseInt(b.dataset.price);
+        if (priceSort === 'low') return priceA - priceB;
+        if (priceSort === 'high') return priceB - priceA;
+        return 0;
+      });
+
+      sorted.forEach(card => container.appendChild(card));
+    }
+  </script>
+</body>
+</html>

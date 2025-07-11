@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سبد خرید | FUN PACK</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Vazir, sans-serif;
+      background-color: #fdfcfb;
+    }
+  </style>
+</head>
+<body class="text-gray-800 p-4">
+  <header class="bg-yellow-400 text-black text-center py-4 text-2xl font-bold shadow rounded-xl mb-6">
+    <h1>سبد خرید شما</h1>
+  </header>
+
+  <div id="cartItems" class="max-w-3xl mx-auto space-y-4">
+    <!-- آیتم‌های سبد خرید اینجا نمایش داده می‌شوند -->
+  </div>
+
+  <div class="max-w-3xl mx-auto mt-6 p-4 bg-white rounded-xl shadow">
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-lg">جمع کل:</span>
+      <span id="totalPrice" class="font-bold text-green-600 text-xl">0 تومان</span>
+    </div>
+    <div class="mt-4 flex justify-between gap-4">
+      <button onclick="clearCart()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl flex-1">
+        پاک کردن سبد خرید
+      </button>
+      <button onclick="checkout()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl flex-1">
+        ثبت سفارش
+      </button>
+    </div>
+  </div>
+
+  <script>
+  function loadCartItems() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItemsContainer = document.getElementById("cartItems");
+    const totalPriceElement = document.getElementById("totalPrice");
+    cartItemsContainer.innerHTML = "";
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = '<p class="text-center py-8">سبد خرید شما خالی است</p>';
+      totalPriceElement.textContent = "0 تومان";
+      return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      if (!item || typeof item !== "object") return;
+
+      item.quantity = parseInt(item.quantity);
+      if (isNaN(item.quantity) || item.quantity < 1) item.quantity = 1;
+
+      const price = parseInt(item.price);
+      const itemTotal = price * item.quantity;
+      total += itemTotal;
+
+      const itemElement = document.createElement("div");
+      itemElement.className = "bg-white p-4 rounded-xl shadow flex flex-col md:flex-row gap-4 items-center";
+      itemElement.innerHTML = `
+        <img src="${item.image}" alt="${item.title}" class="w-24 h-24 object-contain rounded-lg" />
+        <div class="flex-1">
+          <h3 class="font-bold">${item.title}</h3>
+          <p class="text-gray-600">مدل: ${item.model}</p>
+          <p class="text-gray-600">رنگ: ${item.color}</p>
+          <p class="text-green-600 font-bold">${itemTotal.toLocaleString()} تومان</p>
+          <div class="flex items-center gap-2 mt-2">
+            <button onclick="changeQuantity(${index}, -1)" class="bg-gray-200 hover:bg-gray-300 px-2 rounded">−</button>
+            <span class="px-2 font-bold">${item.quantity}</span>
+            <button onclick="changeQuantity(${index}, 1)" class="bg-gray-200 hover:bg-gray-300 px-2 rounded">+</button>
+          </div>
+        </div>
+        <button onclick="removeItem(${index})" class="self-start md:self-center bg-red-100 hover:bg-red-200 text-red-600 px-3 py-1 rounded-lg">
+          حذف
+        </button>
+      `;
+      cartItemsContainer.appendChild(itemElement);
+    });
+
+    totalPriceElement.textContent = total.toLocaleString() + " تومان";
+  }
+
+  function changeQuantity(index, delta) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (!cart[index]) return;
+
+    cart[index].quantity = parseInt(cart[index].quantity);
+    if (isNaN(cart[index].quantity) || cart[index].quantity < 1) cart[index].quantity = 1;
+
+    cart[index].quantity += delta;
+    if (cart[index].quantity < 1) cart[index].quantity = 1;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCartItems();
+    updateCartCountOnAllPages();
+  }
+
+  function removeItem(index) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (!cart[index]) return;
+
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCartItems();
+    updateCartCountOnAllPages();
+  }
+
+  function clearCart() {
+    localStorage.removeItem("cart");
+    loadCartItems();
+    updateCartCountOnAllPages();
+  }
+
+  function checkout() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) {
+      alert("سبد خرید شما خالی است!");
+      return;
+    }
+    window.location.href = "pardakht.html";
+  }
+
+  function updateCartCountOnAllPages() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartCountElements = document.querySelectorAll("#cartCount");
+    cartCountElements.forEach((el) => {
+      el.textContent = cart.length;
+    });
+  }
+
+  window.onload = function () {
+    loadCartItems();
+    updateCartCountOnAllPages();
+  };
+</script>
+</body>
+</html>
