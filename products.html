@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>محصولات | FUN PACK</title>
+  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: Vazir, sans-serif; }
+    .kile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .product-card {
+      width: 890%;
+      height: 420px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .product-card img {
+      width: 50%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-right">
+  <!-- Header -->
+  <header class="bg-yellow-500 text-white p-4 flex justify-between items-center shadow-md">
+    <h1 class="text-xl font-bold">FUN PACK - فروشگاه</h1>
+    <a href="cart.html" class="bg-white text-yellow-600 font-bold px-4 py-1 rounded-xl hover:bg-yellow-100 transition">🛒 سبد خرید</a>
+  </header>
+
+  <!-- Filter -->
+  <div class="p-4 bg-white shadow-sm flex flex-col md:flex-row justify-between items-center gap-4">
+    <div>
+      <label class="font-semibold">فیلتر بر اساس قیمت:</label>
+      <select id="priceFilter" class="border rounded-xl px-3 py-1" onchange="applyFilter()">
+        <option value="all">همه</option>
+        <option value="low">کم به زیاد</option>
+        <option value="high">زیاد به کم</option>
+      </select>
+    </div>
+    <div>
+      <label class="font-semibold">برند:</label>
+      <select id="brandFilter" class="border rounded-xl px-3 py-1" onchange="applyFilter()">
+        <option value="all">همه</option>
+        <option value="Samsung">Samsung</option>
+        <option value="iPhone">iPhone</option>
+        <option value="Xiaomi">Xiaomi</option>
+        <option value="Nokia">Nokia</option>
+        <option value="Honor">Honor</option>
+        <option value="Huawei">Huawei</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <main id="productGrid" class="kile p-6">
+    <!-- Product Template -->
+    <!-- فقط چند نمونه مختلف قرار دادم، بقیه رو راحت می‌تونی کپی بزنی -->
+    <div class="bg-white rounded-xl shadow-md p-4 product-card" data-price="180000" data-brand="Samsung">
+      <img src="https://i.postimg.cc/RZd1cV9j/cover-1.jpg" alt="Samsung Galaxy A21">
+      <div>
+        <h3 class="font-bold text-lg">Samsung Galaxy A21</h3>
+        <p class="text-sm text-gray-500 mb-2">سامسونگ گلکسی A21 با طراحی باریک</p>
+        <p class="font-bold text-yellow-600 mb-2">180,000 تومان</p>
+      </div>
+      <button 
+      class="add-to-cart w-full bg-yellow-500 hover:bg-yellow-600 text-white py-1 rounded-xl"
+      data-title="قاب طرح‌دار شیائومی"
+      data-model="Redmi Note 13"
+      data-color="مشکی"
+      data-price="240000"
+      data-description="قاب با کیفیت بالا و محافظ دوربین"
+      data-image="https://i.postimg.cc/RZd1cV9j/cover-1.jpg"
+      >
+        افزودن به سبد خرید
+      </button>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-4 product-card" data-price="210000" data-brand="Xiaomi">
+      <img src="https://i.postimg.cc/qvWJD2kn/cover-2.jpg" alt="Xiaomi Redmi 9">
+      <div>
+        <h3 class="font-bold text-lg">Xiaomi Redmi 9</h3>
+        <p class="text-sm text-gray-500 mb-2">ردمی ۹ با باتری قدرتمند</p>
+        <p class="font-bold text-yellow-600 mb-2">210,000 تومان</p>
+      </div>
+            <button 
+      class="add-to-cart w-full bg-yellow-500 hover:bg-yellow-600 text-white py-1 rounded-xl"
+      data-title="قاب طرح‌دار شیائومی"
+      data-model="Redmi Note 13"
+      data-color="مشکی"
+      data-price="240000"
+      data-description="قاب با کیفیت بالا و محافظ دوربین"
+      data-image="https://i.postimg.cc/qvWJD2kn/cover-2.jpg"
+      >
+        افزودن به سبد خرید
+      </button>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-4 product-card" data-price="240000" data-brand="iPhone">
+      <img src="https://i.postimg.cc/Y9HpMkLC/cover-7.jpg" alt="iPhone 13 Pro">
+      <div>
+        <h3 class="font-bold text-lg">iPhone 13 Pro</h3>
+        <p class="text-sm text-gray-500 mb-2">آیفون ۱۳ پرو دوربین پیشرفته</p>
+        <p class="font-bold text-yellow-600 mb-2">240,000 تومان</p>
+      </div>
+            <button 
+      class="add-to-cart w-full bg-yellow-500 hover:bg-yellow-600 text-white py-1 rounded-xl"
+      data-title="قاب طرح‌دار شیائومی"
+      data-model="Redmi Note 13"
+      data-color="مشکی"
+      data-price="240000"
+      data-description="قاب با کیفیت بالا و محافظ دوربین"
+      data-image="https://i.postimg.cc/Y9HpMkLC/cover-7.jpg"
+      >
+        افزودن به سبد خرید
+      </button>
+    </div>
+    <div class="bg-white rounded-xl shadow-md p-4 product-card" data-price="160000" data-brand="Nokia">
+      <img src="https://i.postimg.cc/X7JnVsqd/cover-4.jpg" alt="Nokia 3310">
+      <div>
+        <h3 class="font-bold text-lg">Nokia 3310</h3>
+        <p class="text-sm text-gray-500 mb-2">نوکیا کلاسیک ضد ضربه</p>
+        <p class="font-bold text-yellow-600 mb-2">160,000 تومان</p>
+      </div>
+            <button 
+      class="add-to-cart w-full bg-yellow-500 hover:bg-yellow-600 text-white py-1 rounded-xl"
+      data-title="قاب طرح‌دار شیائومی"
+      data-model="Redmi Note 13"
+      data-color="مشکی"
+      data-price="240000"
+      data-description="قاب با کیفیت بالا و محافظ دوربین"
+      data-image="https://i.postimg.cc/X7JnVsqd/cover-4.jpg"
+      >
+        افزودن به سبد خرید
+      </button>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-4 product-card" data-price="190000" data-brand="Honor">
+      <img src="https://i.postimg.cc/RVKxC293/cover-5.jpg" alt="Honor X7">
+      <div>
+        <h3 class="font-bold text-lg">Honor X7</h3>
+        <p class="text-sm text-gray-500 mb-2">آنر ایکس ۷ با صفحه بزرگ</p>
+        <p class="font-bold text-yellow-600 mb-2">190,000 تومان</p>
+      </div>
+            <button 
+      class="add-to-cart w-full bg-yellow-500 hover:bg-yellow-600 text-white py-1 rounded-xl"
+      data-title="قاب طرح‌دار شیائومی"
+      data-model="Redmi Note 13"
+      data-color="مشکی"
+      data-price="240000"
+      data-description="قاب با کیفیت بالا و محافظ دوربین"
+      data-image="https://i.postimg.cc/RVKxC293/cover-5.jpg"
+      >
+        افزودن به سبد خرید
+      </button>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-4 product-card" data-price="200000" data-brand="Huawei">
+      <img src="https://i.postimg.cc/GmRw4zhX/cover-6.jpg" alt="Huawei Nova 8">
+      <div>
+        <h3 class="font-bold text-lg">Huawei Nova 8</h3>
+        <p class="text-sm text-gray-500 mb-2">هواوی نوا ۸ با دوربین چهارگانه</p>
+        <p class="font-bold text-yellow-600 mb-2">200,000 تومان</p>
+      </div>
+            <button 
+      class="add-to-cart w-full bg-yellow-500 hover:bg-yellow-600 text-white py-1 rounded-xl"
+      data-title="قاب طرح‌دار شیائومی"
+      data-model="Redmi Note 13"
+      data-color="مشکی"
+      data-price="240000"
+      data-description="قاب با کیفیت بالا و محافظ دوربین"
+      data-image="https://i.postimg.cc/GmRw4zhX/cover-6.jpg"
+      >
+        افزودن به سبد خرید
+      </button>
+    </div>
+  </main>
+
+  <!-- Filter Script -->
+  <script>
+    function applyFilter() {
+      const priceSort = document.getElementById('priceFilter').value;
+      const brandFilter = document.getElementById('brandFilter').value;
+      const cards = Array.from(document.querySelectorAll('.product-card'));
+      const container = document.getElementById('productGrid');
+
+      // فیلتر برند
+      cards.forEach(card => {
+        const brand = card.dataset.brand;
+        const show = brandFilter === 'all' || brand === brandFilter;
+        card.style.display = show ? 'flex' : 'none';
+      });
+
+      // مرتب‌سازی قیمت
+      const visibleCards = cards.filter(c => c.style.display !== 'none');
+      const sorted = visibleCards.sort((a, b) => {
+        const priceA = parseInt(a.dataset.price);
+        const priceB = parseInt(b.dataset.price);
+        if (priceSort === 'low') return priceA - priceB;
+        if (priceSort === 'high') return priceB - priceA;
+        return 0;
+      });
+
+      sorted.forEach(card => container.appendChild(card));
+    }
+  </script>
+  <script>
+  // فیلتر بر اساس برند
+  const brandFilters = document.querySelectorAll(".brand-filter");
+  const productCards = document.querySelectorAll(".product-card");
+
+  brandFilters.forEach(filter => {
+    filter.addEventListener("click", () => {
+      const selectedBrand = filter.getAttribute("data-brand");
+      productCards.forEach(card => {
+        const cardBrand = card.getAttribute("data-brand");
+        card.style.display = (selectedBrand === "all" || selectedBrand === cardBrand) ? "block" : "none";
+      });
+    });
+  });
+
+  // فیلتر بر اساس رنگ
+  const colorFilters = document.querySelectorAll(".color-filter");
+
+  colorFilters.forEach(filter => {
+    filter.addEventListener("click", () => {
+      const selectedColor = filter.getAttribute("data-color");
+      productCards.forEach(card => {
+        const cardColor = card.getAttribute("data-color");
+        card.style.display = (selectedColor === "all" || selectedColor === cardColor) ? "block" : "none";
+      });
+    });
+  });
+
+  // افزودن به سبد خرید
+  const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+  addToCartButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const product = {
+        title: button.getAttribute("data-title"),
+        model: button.getAttribute("data-model"),
+        color: button.getAttribute("data-color"),
+        price: parseInt(button.getAttribute("data-price")),
+        description: button.getAttribute("data-description"),
+        image: button.getAttribute("data-image"),
+        quantity: 1
+      };
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // بررسی اینکه آیا محصول قبلاً در سبد هست یا نه
+      const existingProductIndex = cart.findIndex(item =>
+        item.title === product.title &&
+        item.model === product.model &&
+        item.color === product.color
+      );
+
+      if (existingProductIndex > -1) {
+        cart[existingProductIndex].quantity += 1;
+      } else {
+        cart.push(product);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("محصول به سبد خرید اضافه شد!");
+    });
+  });
+</script>
+</body>
+</html>

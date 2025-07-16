@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>پنل کاربری | FUN PACK</title>
+  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: Vazir, sans-serif;
+    }
+    .div1 a{
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+      padding: 8px;
+    }
+    .div1 a:hover{
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-xl h-screen p-4 hidden md:block">
+    <h2 class="text-xl font-bold mb-6 text-yellow-600">👋 خوش آمدید</h2>
+    <ul class="space-y-4 text-gray-700 font-semibold">
+      <li><a href="#" onclick="showSection('orders')">🧾 سفارشات من</a></li>
+      <li><a href="#" onclick="showSection('profile')">👤 اطلاعات حساب</a></li>
+      <li><a href="#" onclick="showSection('address')">📦 آدرس‌ها</a></li>
+      <li><a href="login.html" class="text-red-600">❌ خروج</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main content -->
+  <main class="flex-1 p-6 space-y-6">
+
+    <!-- سربرگ موبایل -->
+    <div class="md:hidden mb-4">
+      <select onchange="showSection(this.value)" class="w-full border rounded-lg p-2">
+        <option value="orders">🧾 سفارشات من</option>
+        <option value="profile">👤 اطلاعات حساب</option>
+        <option value="address">📦 آدرس‌ها</option>
+      </select>
+    </div>
+
+    <!-- بخش‌ها -->
+    <section id="orders" class="dashboard-section">
+      <h2 class="text-xl font-bold mb-4">🧾 سفارشات من</h2>
+      <p>لیست سفارشات شما در این بخش نمایش داده می‌شود.</p>
+      <!-- در آینده دیتا واقعی اضافه می‌شه -->
+    </section>
+    <section id="orders" class="dashboard-section">
+  <h2 class="text-xl font-bold mb-4">🧾 سفارشات من</h2>  
+  <table class="w-full border rounded-xl overflow-hidden shadow-sm">
+    <thead class="bg-gray-200 text-sm">
+      <tr>
+        <th class="py-2 px-3">#</th>
+        <th class="py-2 px-3">محصول</th>
+        <th class="py-2 px-3">تعداد</th>
+        <th class="py-2 px-3">قیمت</th>
+        <th class="py-2 px-3">وضعیت</th>
+      </tr>
+    </thead>
+    <tbody class="text-sm text-gray-700">
+      <tr class="bg-white border-b">
+        <td class="py-2 px-3">1</td>
+        <td class="py-2 px-3">قاب سامسونگ A32</td>
+        <td class="py-2 px-3">2</td>
+        <td class="py-2 px-3">200,000 تومان</td>
+        <td class="py-2 px-3 text-green-600">ارسال شده</td>
+      </tr>
+      <tr class="bg-white">
+        <td class="py-2 px-3">2</td>
+        <td class="py-2 px-3">محافظ آیفون 13</td>
+        <td class="py-2 px-3">1</td>
+        <td class="py-2 px-3">150,000 تومان</td>
+        <td class="py-2 px-3 text-yellow-500">در حال پردازش</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  <div class="div1" style="display: flex; justify-content: center;align-items: center; text-align: center;">
+  <a href="pardakht.html" style="background-color: rgb(37, 199, 37); width: 50%; text-align: center; border-radius: 16px;color: rgba(0, 0, 0, 0.521);">ثبت سفارش</a>
+  </div>
+    <section id="profile" class="dashboard-section hidden">
+      <h2 class="text-xl font-bold mb-4">👤 اطلاعات حساب</h2>
+      <p>نام، ایمیل و اطلاعات شخصی شما اینجاست.</p>
+    </section>
+
+    <section id="address" class="dashboard-section hidden">
+      <h2 class="text-xl font-bold mb-4">📦 آدرس‌ها</h2>
+      <p>آدرس‌های ثبت‌شده برای ارسال سفارش.</p>
+    </section>
+  </main>
+   <section id="profile" class="dashboard-section hidden">
+  <h2 class="text-xl font-bold mb-4">👤 اطلاعات حساب</h2>
+  <ul class="text-gray-700 space-y-2">
+    <li><strong>نام:</strong> علی رضایی</li>
+    <li><strong>ایمیل:</strong> ali.rezaei@gmail.com</li>
+    <li><strong>شماره موبایل:</strong> 09121234567</li>
+  </ul>
+</section>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.dashboard-section').forEach(s => s.classList.add('hidden'));
+      document.getElementById(sectionId).classList.remove('hidden');
+    }
+  </script>
+  <script>
+  function handleLogin(event) {
+    event.preventDefault();
+    // گرفتن مقادیر واردشده
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    // در آینده می‌تونی اینجا اعتبارسنجی و ارسال به سرور بزاری
+    if (email && password) {
+      // ورود موفق → هدایت به پنل
+      window.location.href = "dashboard.html";
+    } else {
+      alert("لطفاً اطلاعات را کامل وارد کنید.");
+    }
+  }
+
+  function showForm(formId) {
+    document.querySelectorAll("form").forEach(f => f.classList.add("hidden"));
+    document.getElementById(formId).classList.remove("hidden");
+  }
+</script>
+</body>
+</html>

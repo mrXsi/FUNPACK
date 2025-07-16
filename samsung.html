@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قاب‌های سامسونگ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Vazir, sans-serif;
+      background-color: #ffffff;
+      overflow-y: auto;
+    }
+    .div2 button{
+      position: absolute;left: 0;top: 0;
+      width: 50px;
+      border-radius: 18px;
+      margin-left: 1rem;
+      margin-top: .5rem;
+      background-color: rgb(117, 221, 113);
+    }
+    .hed1{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.307);
+    }
+    .hed1 h1{
+      font-size: 1.5rem;
+    }
+    @media screen and (max-width:400px){
+      .hed1 h1{
+        font-size: 1.2rem;
+        margin-left: 1rem;
+      }
+    }
+    input[type="radio"]:checked + span {
+      border-width: 2px;
+      border-color: rgb(0, 0, 0);
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- هدر بالای سایت -->
+  <header class="hed1 text-black text-center py-4 text-2xl font-bold shadow"><h1>قاب‌های گوشی سامسونگ</h1></header>
+
+  <!-- سبد خرید سمت چپ بالا -->
+  <div class="items-center gap-3 div2">
+    <button onclick="viewCart()" class="relative bg-white border rounded-full p-3 shadow hover:bg-yellow-100"">
+      🛒
+      <span id="cartCount" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+    </button>
+  </div>
+
+  <!-- لیست محصولات -->
+  <main class="max-w-5xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
+
+    <!-- محصول 1 -->
+<div class="bg-white rounded-xl shadow p-4 flex flex-col">
+  <img src="https://i.postimg.cc/RZd1cV9j/cover-1.jpg" alt="قاب A32" class="h-52 object-contain mb-2 rounded">
+  <p class="text-sm text-gray-700 mb-2">قاب ژله‌ای مقاوم برای سامسونگ با طراحی ساده و محافظت کامل.</p>
+
+  <!-- انتخاب رنگ -->
+  <div class="flex items-center gap-3 mb-2">
+    <label>
+      <input type="radio" name="color1" value="سبز" class="hidden" checked>
+      <span class="inline-block w-5 h-5 rounded-full bg-green-500 border-2 border-gray-400 cursor-pointer"></span>
+    </label>
+    <label>
+      <input type="radio" name="color1" value="قرمز" class="hidden">
+      <span class="inline-block w-5 h-5 rounded-full bg-red-500 border-2 border-gray-400 cursor-pointer"></span>
+    </label>
+    <label>
+      <input type="radio" name="color1" value="آبی" class="hidden">
+      <span class="inline-block w-5 h-5 rounded-full bg-blue-500 border-2 border-gray-400 cursor-pointer"></span>
+    </label>
+  </div>
+
+  <!-- مدل و دکمه -->
+  <div class="flex items-center justify-between">
+    <select id="modelSelect1" class="border rounded px-3 py-1 text-sm">
+      <option value="">انتخاب مدل</option>
+      <option value="A32">Galaxy A32</option>
+      <option value="A52">Galaxy A52</option>
+      <option value="S23">Galaxy S23</option>
+      <option value="A12">Galaxy A12</option>
+      <option value="A22">Galaxy A22</option>
+      <option value="A34">Galaxy A34</option>
+      <option value="A56">Galaxy A56</option>
+    </select>
+    <button onclick="addToCart('قاب سامسونگ ژله‌ای', 'modelSelect1', '/photo/cover (1).jpg', 180000, 'color1')"
+            class="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-xl">
+      + افزودن به سبد خرید
+    </button>
+  </div>
+</div>
+    <!-- محصول 2 -->
+<div class="bg-white rounded-xl shadow p-4 flex flex-col">
+  <img src="https://i.postimg.cc/RZd1cV9j/cover-1.jpg" alt="قاب A32" class="h-52 object-contain mb-2 rounded">
+  <p class="text-sm text-gray-700 mb-2">قاب ژله‌ای مقاوم برای سامسونگ با طراحی ساده و محافظت کامل.</p>
+
+  <!-- انتخاب رنگ -->
+  <div class="flex items-center gap-3 mb-2">
+    <label>
+      <input type="radio" name="color1" value="سبز" class="hidden" checked>
+      <span class="inline-block w-5 h-5 rounded-full bg-green-500 border-2 border-gray-400 cursor-pointer"></span>
+    </label>
+    <label>
+      <input type="radio" name="color1" value="قرمز" class="hidden">
+      <span class="inline-block w-5 h-5 rounded-full bg-red-500 border-2 border-gray-400 cursor-pointer"></span>
+    </label>
+    <label>
+      <input type="radio" name="color1" value="آبی" class="hidden">
+      <span class="inline-block w-5 h-5 rounded-full bg-blue-500 border-2 border-gray-400 cursor-pointer"></span>
+    </label>
+  </div>
+
+  <!-- مدل و دکمه -->
+  <div class="flex items-center justify-between">
+    <select id="modelSelect1" class="border rounded px-3 py-1 text-sm">
+      <option value="">انتخاب مدل</option>
+      <option value="A32">Galaxy A32</option>
+      <option value="A52">Galaxy A52</option>
+      <option value="S23">Galaxy S23</option>
+      <option value="A12">Galaxy A12</option>
+      <option value="A22">Galaxy A22</option>
+      <option value="A34">Galaxy A34</option>
+      <option value="A56">Galaxy A56</option>
+    </select>
+    <button onclick="addToCart('قاب سامسونگ ژله‌ای', 'modelSelect1', '/photo/cover (1).jpg', 180000, 'color1')"
+            class="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-xl">
+      + افزودن به سبد خرید
+    </button>
+  </div>
+</div>
+
+<div class="bg-white rounded-xl shadow p-4 flex flex-col">
+  <img src="https://i.postimg.cc/RZd1cV9j/cover-1.jpg" alt="قاب A32" class="h-52 object-contain mb-2 rounded">
+  <p class="text-sm text-gray-700 mb-2">قاب ژله‌ای مقاوم برای سامسونگ با طراحی ساده و محافظت کامل.</p>
+
+  <!-- انتخاب رنگ -->
+  <div class="flex items-center gap-3 mb-2">
+    <label>
+      <input type="radio" name="color1" value="سبز" class="hidden" checked>
+      <span class="inline-block w-5 h-5 rounded-full bg-green-500 border-2 border-gray-400 cursor-pointer"></span>
+    </label>
+    <label>
+      <input type="radio" name="color1" value="قرمز" class="hidden">
+      <span class="inline-block w-5 h-5 rounded-full bg-red-500 border-2 border-gray-400 cursor-pointer"></span>
+    </label>
+    <label>
+      <input type="radio" name="color1" value="آبی" class="hidden">
+      <span class="inline-block w-5 h-5 rounded-full bg-blue-500 border-2 border-gray-400 cursor-pointer"></span>
+    </label>
+  </div>
+
+  <!-- مدل و دکمه -->
+  <div class="flex items-center justify-between">
+    <select id="modelSelect1" class="border rounded px-3 py-1 text-sm">
+      <option value="">انتخاب مدل</option>
+      <option value="A32">Galaxy A32</option>
+      <option value="A52">Galaxy A52</option>
+      <option value="S23">Galaxy S23</option>
+      <option value="A12">Galaxy A12</option>
+      <option value="A22">Galaxy A22</option>
+      <option value="A34">Galaxy A34</option>
+      <option value="A56">Galaxy A56</option>
+    </select>
+    <button onclick="addToCart('قاب سامسونگ ژله‌ای', 'modelSelect1', '/photo/cover (1).jpg', 180000, 'color1')"
+            class="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-xl">
+      + افزودن به سبد خرید
+    </button>
+  </div>
+</div>
+
+
+
+    <!-- می‌تونی محصولات بیشتر به همین شکل اضافه کنی -->
+
+  </main>
+
+
+  <script>
+    // این کد را در تمام صفحاتی که سبد خرید دارند قرار دهید
+let cartCount = 0;
+
+function addToCart(title, selectId, image, price, colorName) {
+  const model = document.getElementById(selectId).value;
+  if (!model) {
+    alert("لطفاً مدل گوشی را انتخاب کنید.");
+    return;
+  }
+
+  // دریافت رنگ انتخاب‌شده
+  const colorRadio = document.querySelector(`input[name="${colorName}"]:checked`);
+  const color = colorRadio ? colorRadio.value : "بدون رنگ";
+
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push({ 
+    title, 
+    model, 
+    color, 
+    price, 
+    image,
+    timestamp: new Date().getTime()
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  alert("✅ محصول با رنگ " + color + " به سبد خرید اضافه شد!");
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cartCount = cart.length;
+  document.getElementById("cartCount").textContent = cartCount;
+}
+
+function viewCart() {
+  window.location.href = "cart.html";
+}
+
+// مقدار اولیه برای سبد خرید در صورت وجود
+window.onload = () => {
+  updateCartCount();
+}
+  </script>
+
+</body>
+</html>
